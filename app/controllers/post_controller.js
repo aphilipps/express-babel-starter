@@ -19,9 +19,8 @@ export const createPost = (req, res) => {
     .catch(error => {
       res.json({ error });
     });
-
-  // res.send('post should be created here');
 };
+
 export const getPosts = (req, res) => {
   Post.find()
   .then(posts => {
@@ -30,8 +29,6 @@ export const getPosts = (req, res) => {
   .catch(error => {
     res.json({ error });
   });
-
-  // res.send('posts should be returned');
 };
 
 export const getPost = (req, res) => {
@@ -42,7 +39,6 @@ export const getPost = (req, res) => {
   .catch(error => {
     res.json({ error });
   });
-  // res.send('single post looked up');
 };
 
 export const deletePost = (req, res) => {
@@ -53,13 +49,11 @@ export const deletePost = (req, res) => {
   .catch(error => {
     res.json({ error });
   });
-  // res.send('delete a post here');
 };
 
 export const updatePost = (req, res) => {
   Post.findById(req.params.id)
   .then(post => {
-    // const newPost = post;
     if (req.body.title) {
       post.title = req.body.title;
     }
