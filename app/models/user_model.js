@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
   author: { type: Schema.Types.ObjectId, ref: 'User' },
-  username: String,
+  name: String,
 });
 
 UserSchema.set('toJSON', {
