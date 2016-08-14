@@ -44,3 +44,14 @@ function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
+
+export const getUsers = (req, res) => {
+  User.find()
+  .then(users => {
+    // console.log(users);
+    res.json(users);
+  })
+  .catch(error => {
+    res.json({ error });
+  });
+};

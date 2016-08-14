@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as Posts from './controllers/post_controller';
+// import * as Users from './controllers/user_controller';
 import * as UserController from './controllers/user_controller';
 import { requireAuth, requireSignin } from './services/passport';
 
@@ -23,5 +24,8 @@ router.route('/posts/:id')
 router.post('/signin', requireSignin, UserController.signin);
 
 router.post('/signup', UserController.signup);
+
+router.route('/users')
+  .get(UserController.getUsers);
 
 export default router;
